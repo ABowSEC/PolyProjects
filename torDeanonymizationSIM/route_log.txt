@@ -16,3 +16,9 @@ Relay 1 processed at: 2025-05-16 02:07:09.137
 Relay 2 processed at: 2025-05-16 02:07:09.292
 Exit received at:     2025-05-16 02:07:09.483
 
+Route timing:
+Client sent at:       2025-05-18 20:26:33.911
+Relay 1 processed at: 2025-05-18 20:26:34.094
+Relay 2 processed at: 2025-05-18 20:26:34.179
+Exit received at:     2025-05-18 20:26:34.287
+
