@@ -1,3 +1,6 @@
+# A. Bowman LineShift — Custom Proprietary Software License
+# Copyright © 2025 A. Bowman. All rights reserved.
+#
 import requests
 import sqlite3
 from datetime import datetime 
