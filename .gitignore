@@ -11,6 +11,8 @@ venv/
 # Environment variables
 .env
 
+#databases
+nfl_odds.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
