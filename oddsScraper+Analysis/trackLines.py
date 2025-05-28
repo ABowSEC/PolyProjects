@@ -1,5 +1,5 @@
 import sqlite3
-
+#IMPLEMENT MORE SOURCES FOR COMPARISION
 file = sqlite3.connect("nfl_odds.db")
 c= file.cursor
 

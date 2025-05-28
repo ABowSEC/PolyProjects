@@ -27,12 +27,34 @@ ORDER BY last_updated DESC
 df = pd.read_sql_query(query, conn)
 
 # Filter sidebar
-team_filter = st.sidebar.text_input("Filter by Team Name:")
-if team_filter:
-    df = df[df['home_team'].str.contains(team_filter, case=False) |
-            df['away_team'].str.contains(team_filter, case=False)]
+with st.sidebar:
+    st.header("Filters")                                                                                #Search ICON could be added 
+    team = st.text_input("Team Name")
+    if team:
+        df = df[df['home_team'].str.contains(team, case=False) |
+            df['away_team'].str.contains(team, case=False)]
+
+# WAS CHANGED TO ABOVE NEEDS TEST
+#team_filter = st.sidebar.text_input("Filter by Team Name:")
+#if team_filter:
+#    df = df[df['home_team'].str.contains(team_filter, case=False) |
+#            df['away_team'].str.contains(team_filter, case=False)]
+
+#FOrmat Display
+def formatMatch(row):
+    return f"{row['away_team']} @ {row['home_team']}"
+
+
+df["Matchup"] = df.apply(formatMatch, axis=1)
+df = df[["Matchup", "spread", "total", "moneyline_home", "moneyline_away", "last_updated"]]
+df.columns = ["Matchup", "Spread", "Total (O/U)", "Moneyline (Home)", "Moneyline (Away)", "Last Updated"]
+
 
 # Display table
 st.dataframe(df, use_container_width=True)
+
+
+#$Refresh
+st.markdown("Refresh to pull Latest Odds")
 
 conn.close()
